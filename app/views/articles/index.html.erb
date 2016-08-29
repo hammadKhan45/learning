@@ -10,6 +10,11 @@
       </div>
       <div class="article-body">
         <%= truncate(article.description, length:50) %>
+        <div class="article-data-details">
+        <small> Created by: <%= article.user.username if article.user %> ,
+        <%= time_ago_in_words(article.created_at) %> ago, last updated: <%= time_ago_in_words(article.updated_at) %> ago
+        </small>
+        </div>
       </div>
       <div class="article-action">
         <div class="col-xs-4"><%= link_to "edit this article", edit_article_path(article), class: "btn btn-xs btn-primary btn-block" %></div>
